@@ -1,0 +1,172 @@
+/* -----------------------------------------
+   TAILWIND IMPORTS
+----------------------------------------- */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* -----------------------------------------
+   GLOBAL SETTINGS
+----------------------------------------- */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  /* FIXED: match navbar height so no gap appears */
+  padding-top: 64px !important;
+
+  background-color: #f8fafc;
+  font-family: "Inter", sans-serif;
+}
+
+/* Beautiful holistic gradient bg */
+.bg-holistic {
+  background: linear-gradient(135deg, #eef7ff 0%, #e7f4ff 40%, #ffffff 100%);
+}
+
+/* -----------------------------------------
+   ✔ GLOBAL INPUT STYLE (UPDATED & FIXED)
+----------------------------------------- */
+.app-input {
+  @apply 
+    w-full rounded-xl
+    bg-white dark:bg-gray-800
+    text-gray-900 dark:text-gray-100
+    placeholder-gray-500 dark:placeholder-gray-300
+    border border-gray-300 dark:border-gray-600
+    focus:outline-none focus:ring-2
+    focus:ring-indigo-500 dark:focus:ring-indigo-400
+    transition;
+
+  height: 52px;
+  line-height: 52px;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  padding-left: 3.5rem !important;
+}
+
+/* -----------------------------------------
+   BUTTON BASE
+----------------------------------------- */
+button {
+  @apply transition-all duration-300;
+}
+
+.btn-primary {
+  @apply bg-blue-600 text-white px-5 py-3 rounded-xl shadow-md;
+}
+.btn-primary:hover {
+  @apply bg-blue-700 scale-105;
+}
+
+.btn-secondary {
+  @apply bg-slate-200 text-slate-700 px-5 py-3 rounded-xl;
+}
+.btn-secondary:hover {
+  @apply bg-slate-300;
+}
+
+.btn-danger {
+  @apply bg-red-600 text-white px-5 py-3 rounded-xl;
+}
+.btn-danger:hover {
+  @apply bg-red-700;
+}
+
+/* -----------------------------------------
+   CARD STYLING (Holistic feel)
+----------------------------------------- */
+.card {
+  @apply bg-white rounded-2xl p-6 shadow-lg border border-slate-200;
+  transition: 0.25s ease-in-out;
+}
+.card:hover {
+  transform: translateY(-4px);
+}
+
+/* -----------------------------------------
+   PAGE TITLES
+----------------------------------------- */
+.page-title {
+  @apply text-3xl font-bold text-slate-800 text-center mb-6;
+}
+
+/* -----------------------------------------
+   REVEAL ANIMATIONS
+----------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px) scale(0.995);
+  transition: all 700ms cubic-bezier(.2, .9, .2, 1);
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.reveal-card {
+  opacity: 0;
+  transform: translateY(18px) scale(0.985);
+  transition: all 700ms cubic-bezier(.2, .9, .2, 1);
+}
+.reveal-card.reveal-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.reveal-chart {
+  transform: translateY(20px) scaleY(0.95);
+  transition: all 900ms cubic-bezier(.2, .9, .2, 1);
+}
+.reveal-visible .reveal-chart {
+  transform: translateY(0) scaleY(1);
+}
+
+/* -----------------------------------------
+   FLOATING ANIMATIONS
+----------------------------------------- */
+@keyframes floatSlow {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-18px); }
+  100% { transform: translateY(0); }
+}
+
+.animate-floating-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-floating {
+  animation: float 7s ease-in-out infinite;
+}
+
+/* -----------------------------------------
+   EXTRA UTILITIES
+----------------------------------------- */
+.drop-shadow-lg {
+  filter: drop-shadow(0 6px 18px rgba(16, 24, 40, 0.12));
+}
+
+.bg-white\/60 {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.section-padding {
+  padding-top: 30px;
+}
+
+.center {
+  text-align: center;
+}
+
+.pt-navbar {
+  padding-top: 64px !important;
+}

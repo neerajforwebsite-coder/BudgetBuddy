@@ -1,0 +1,59 @@
+# -----------------------------
+# Node Modules (Required)
+# -----------------------------
+node_modules/
+
+# -----------------------------
+# Environment Variables
+# -----------------------------
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+.env.*     # All env files
+
+# -----------------------------
+# Logs
+# -----------------------------
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+logs/
+*.log
+
+# -----------------------------
+# System / OS Files
+# -----------------------------
+.DS_Store
+Thumbs.db
+
+# -----------------------------
+# Build / Cache Files
+# -----------------------------
+dist/
+coverage/
+.cache/
+.pnp/
+.pnp.js
+*.tsbuildinfo
+
+# -----------------------------
+# Editor Files
+# -----------------------------
+.vscode/
+.idea/
+*.swp
+
+# -----------------------------
+# Optional: Upload Folder
+# (If backend stores images/files locally)
+# -----------------------------
+uploads/
+
+# -----------------------------
+# Temporary Files
+# -----------------------------
+tmp/
+temp/
