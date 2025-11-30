@@ -1,27 +1,41 @@
-require("dotenv").config();
-const http = require("http");
 const express = require("express");
-const app = require("./app");
-const connectDB = require("./config/db");
+const cors = require("cors");
+const dotenv = require("dotenv");
+const connectDb = require("./config/db");
 
-// ROUTERS
-const userRouter = require("./routes/userRouter");
-const transactionRouter = require("./routes/transactionRouter");
-const categoryRouter = require("./routes/categoryRouter");
+const userRoutes = require("./routes/userRouter");
+const transactionRoutes = require("./routes/transactionRouter");
+const categoryRoutes = require("./routes/categoryRouter");
 
-// CONNECT DATABASE
-connectDB();
+dotenv.config();
+connectDb();
 
-// MOUNT ROUTES
-app.use("/api/v1/users", userRouter);
-app.use("/api/v1/transactions", transactionRouter);
-app.use("/api/v1/categories", categoryRouter);
+const app = express();
 
-// SERVER SETUP
+// CORS FIX FOR RENDER 🚀
+app.use(
+  cors({
+    origin: "*", // allow ALL requests
+    methods: "GET,POST,PUT,DELETE",
+    allowedHeaders: "Content-Type,Authorization",
+  })
+);
+
+app.use(express.json());
+
+// ROUTES
+app.use("/api/auth", userRoutes); // REGISTER + LOGIN
+app.use("/api/transactions", transactionRoutes);
+app.use("/api/category", categoryRoutes);
+
+// TEST ROUTE
+app.get("/", (req, res) => {
+  res.send("Backend is running on Render!");
+});
+
+// PORT CONFIG
 const PORT = process.env.PORT || 8000;
 
-const server = http.createServer(app);
-
-server.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
